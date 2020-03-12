@@ -22,7 +22,7 @@ namespace Travquot
                 {
                     webBuilder
                     .UseStartup<Startup>()
-                    .UseUrls(new[] { "http://0.0.0.0:8000" });
+                    .UseUrls(new[] { "http://0.0.0.0:4000" });
                 });
     }
    
