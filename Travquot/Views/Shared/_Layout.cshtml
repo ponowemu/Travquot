@@ -41,7 +41,7 @@
             <div id="logo">
                 <a href="#">
                     @*<img src="~/img/logo.svg" width="150" height="36" alt="" class="logo_normal">
-                    <img src="~/img/logo_sticky.svg" width="150" height="36" alt="" class="logo_sticky">*@
+                        <img src="~/img/logo_sticky.svg" width="150" height="36" alt="" class="logo_sticky">*@
                 </a>
             </div>
             <ul id="top_menu">
@@ -70,15 +70,15 @@
                         <ul>
                             <li>
                                 <span><a href="#0">Poland</a></span>
-                             
+
                             </li>
                             <li>
                                 <span><a href="#0">Italy</a></span>
-                                
+
                             </li>
                             <li><a href="tours-half-screen-map.html">Germany</a></li>
                             <li><a href="tour-detail.html">Czech Republic</a></li>
-                           
+
                         </ul>
                     </li>
                     <li>
@@ -90,7 +90,7 @@
         <!-- /header -->
 
         <main>
-            @RenderBody()            
+            @RenderBody()
         </main>
         <!-- /main -->
 
@@ -244,5 +244,42 @@
         });
     </script>
 
+
+    <!-- Listing of tours -->
+    <!-- Map -->
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script src="~/js/markerclusterer.js"></script>
+    <script src="~/js/map_tours.js"></script>
+    <script src="~/js/infobox.js"></script>
+
+    <!-- Masonry Filtering -->
+    <script src="~/js/isotope.min.js"></script>
+    <script>
+        $(window).on('load', function () {
+            var $container = $('.isotope-wrapper');
+            $container.isotope({ itemSelector: '.isotope-item', layoutMode: 'masonry' });
+        });
+
+        $('.filters_listing').on('click', 'input', 'change', function () {
+            var selector = $(this).attr('data-filter');
+            $('.isotope-wrapper').isotope({ filter: selector });
+        });
+    </script>
+
+    <!-- Range Slider -->
+    <script>
+        $("#range").ionRangeSlider({
+            hide_min_max: true,
+            keyboard: true,
+            min: 30,
+            max: 180,
+            from: 60,
+            to: 130,
+            type: 'double',
+            step: 1,
+            prefix: "Min. ",
+            grid: false
+        });
+    </script>
 </body>
 </html>
